@@ -31,7 +31,7 @@ secrets/jupyterhub.key:
 	@echo "Need an SSL key in secrets/jupyterhub.key"
 	@exit 1
 
-userlist:
+secrets/userlist:
 	@echo "Add usernames, one per line, to ./userlist, such as:"
 	@echo "    zoe admin"
 	@echo "    wash"
@@ -45,7 +45,7 @@ else
 	cert_files=
 endif
 
-check-files: userlist $(cert_files) secrets/oauth.env secrets/postgres.env
+check-files: secrets/userlist $(cert_files) secrets/oauth.env secrets/postgres.env
 
 pull:
 	docker pull $(DOCKER_NOTEBOOK_IMAGE)
